@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+        <record id="hrp_gauss_demand_testcase_form" model="ir.ui.view">
+            <field name="name">hrp.gauss.demand.testcase.form</field>
+            <field name="model">hrp.gauss.demand.testcase</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="需求form">
+                    <group>
+                        <group name="Left">
+                            <field name='requirement_number'/>
+                            <field name='developers'/>
+                            <field name='transfer_time'/>
+                            <field name='text_test_num'/>
+                            <field name='auto_test_path'/>
+                            <field name='completion_time'/>
+                        </group>
+                        <group name="Right">
+                            <field name='property_name'/>
+                            <field name='test_owner'/>
+                            <field name='test_participants'/>
+                            <field name='text_file'/>
+                            <field name='auto_test_num'/>
+                            <field name='automation_rate'/>
+                            <field name='state'/>
+                            <field name='note'/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="hrp_gauss_demand_testcase_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.demand.testcase.tree</field>
+            <field name="model">hrp.gauss.demand.testcase</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="需求tree">
+                    <field name='property_name'/>
+                    <field name='developers'/>
+                    <field name='test_owner'/>
+                    <field name='automation_rate'/>
+                    <field name='completion_time'/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="hrp_gauss_demand_testcase_activity" model="ir.ui.view">-->
+        <!--            <field name="name">hrp.gauss.demand.testcaseactivity</field>-->
+        <!--            <field name="model">hrp.gauss.demand.testcase</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <activity string="Employees">-->
+        <!--                    <field name="id"/>-->
+        <!--                    <templates>-->
+        <!--                        <div t-name="activity-box">-->
+        <!--                            <img t-att-src="activity_image('hrp.gauss.demand_testcase', 'image_128', record.id.raw_value)"-->
+        <!--                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"/>-->
+        <!--                            <div>-->
+        <!--                                <field name="name" display="full"/>-->
+        <!--                                <field name="rating" muted="1" display="full"/>-->
+        <!--                                <field name="recent_order_num" muted="1" display="full"/>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </templates>-->
+        <!--                </activity>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="hrp_gauss_demand_testcase_filter" model="ir.ui.view">
+            <field name="name">hrp.gauss.demand.testcase.search</field>
+            <field name="model">hrp.gauss.demand.testcase</field>
+            <field name="arch" type="xml">
+                <search string="搜索查询">
+                    <field name='requirement_number'/>
+                    <field name='property_name'/>
+                    <field name='developers'/>
+                    <field name='test_owner'/>
+                    <field name='test_participants'/>
+                    <field name='transfer_time'/>
+                    <field name='completion_time'/>
+                    <field name='state'/>
+                    <filter string="是否完成" name="state" domain="[('state','=',True)]" help="是否完成"/>
+                    <group string="Group By">
+                        <filter name="developers" string="开发" context="{'group_by':'developers'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_demand_testcase" model="ir.actions.act_window">
+            <field name="name">需求测试</field>
+            <field name="res_model">hrp.gauss.demand.testcase</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hrp_gauss_demand_testcase_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_management_menu_root"
+                  action="action_hrp_gauss_demand_testcase"
+                  id="hrp_gauss_demand_testcase_menu"/>
+    </data>
+</odoo>

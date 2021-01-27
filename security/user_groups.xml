@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.module.category" id="module_management_gauss">
+      <field name="name">GAUSS测试组</field>
+      <field name="description">GAUSS测试组</field>
+      <field name="sequence">3</field>
+    </record>
+
+    <record id="group_manager_gauss" model="res.groups">
+      <field name="name">GAUSS</field>
+      <field name="category_id" ref="hrp_gauss.module_management_gauss"/>
+    </record>
+  </data>
+</odoo>

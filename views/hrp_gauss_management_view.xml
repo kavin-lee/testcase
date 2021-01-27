@@ -1,0 +1,105 @@
+<odoo>
+    <data>
+        <record id="hrp_gauss_management_form" model="ir.ui.view">
+            <field name="name">hrp.gauss.management.form</field>
+            <field name="model">hrp.gauss.management</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="可靠性form">
+                    <group>
+                        <group name="Left">
+                            <field name='category_id'/>
+                            <field name='owning_module'/>
+                            <field name='failure_mode'/>
+                            <field name='fault_description'/>
+                            <field name='construction_failure_method'/>
+                        </group>
+                        <!--                        <group name="Right">-->
+                        <!--                            <field name='add'/>-->
+                        <!--                            <field name='latitude'/>-->
+                        <!--                            <field name='longitude'/>-->
+                        <!--                            <field name='address'/>-->
+                        <!--                            <field name='phones'/>-->
+                        <!--                            <field name='state'/>-->
+                        <!--                            <field name='meadure'/>-->
+                        <!--                            <field name='note'/>-->
+                        <!--                        </group>-->
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="hrp_gauss_management_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.management.tree</field>
+            <field name="model">hrp.gauss.management</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="可靠性tree">
+                    <field name='category_id'/>
+                    <field name='owning_module'/>
+                    <field name='failure_mode'/>
+                    <field name='fault_description'/>
+                    <field name='construction_failure_method'/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="hrp_gauss_management_activity" model="ir.ui.view">-->
+        <!--            <field name="name">hrp.gauss.management.activity</field>-->
+        <!--            <field name="model">hrp.gauss.management</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <activity string="Employees">-->
+        <!--                    <field name="id"/>-->
+        <!--                    <templates>-->
+        <!--                        <div t-name="activity-box">-->
+        <!--                            <img t-att-src="activity_image('hrp.gauss.management', 'image_128', record.id.raw_value)"-->
+        <!--                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"/>-->
+        <!--                            <div>-->
+        <!--                                <field name="name" display="full"/>-->
+        <!--                                <field name="rating" muted="1" display="full"/>-->
+        <!--                                <field name="recent_order_num" muted="1" display="full"/>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </templates>-->
+        <!--                </activity>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="hrp_gauss_management_filter" model="ir.ui.view">-->
+        <!--            <field name="name">hrp.gauss.management.search</field>-->
+        <!--            <field name="model">hrp.gauss.management</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="搜索查询">-->
+        <!--                    <field name='code'/>-->
+        <!--                    <field name='add'/>-->
+        <!--                    <field name='shop_id'/>-->
+        <!--                    <field name='name'/>-->
+        <!--                    <field name='rating'/>-->
+        <!--                    <field name='recent_order_num'/>-->
+        <!--                    <field name='latitude'/>-->
+        <!--                    <field name='longitude'/>-->
+        <!--                    <field name='address'/>-->
+        <!--                    <field name='phones'/>-->
+        <!--                    <field name='state'/>-->
+        <!--                    <filter string="是否完成" name="state" domain="[('state','=',True)]" help="是否完成"/>-->
+        <!--                    <group string="Group By">-->
+        <!--                        <filter name="code" string="编码" context="{'group_by':'code'}"/>-->
+        <!--                        <filter name="state" string="状态" context="{'group_by':'state'}"/>-->
+        <!--                        <filter name="add" string="城市" context="{'group_by':'add'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="action_hrp_gauss_management" model="ir.actions.act_window">
+            <field name="name">GAUSS 可靠性</field>
+            <field name="res_model">hrp.gauss.management</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hrp_gauss_management_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_management_menu_root"
+                  action="action_hrp_gauss_management"
+                  id="hrp_gauss_management_menu"/>
+    </data>
+</odoo>

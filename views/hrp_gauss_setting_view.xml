@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="action_hrp_gauss_setting" model="ir.actions.act_window">
+            <field name="name">设置</field>
+            <field name="res_model">hrp.gauss.setting</field>
+            <field name="view_mode">tree,form</field>
+            <!--            <field name="view_id" ref="hrp_gauss_setting_tree"/>-->
+        </record>
+
+        <menuitem parent="hrp_gauss_settings_menu_root"
+                  action="action_hrp_gauss_setting"
+                  id="hrp_gauss_setting_menu"/>
+
+<!--        <record id="action_hrp_gauss_category_setting" model="ir.actions.act_window">-->
+<!--            <field name="name">类别设置</field>-->
+<!--            <field name="res_model">hrp.gauss.category</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            &lt;!&ndash;            <field name="view_id" ref="hrp_gauss_setting_tree"/>&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <menuitem parent="action_hrp_gauss_setting"-->
+<!--                  action="action_hrp_gauss_category_setting"-->
+<!--                  id="hrp_gauss_category_setting_menu"-->
+<!--                  />-->
+    </data>
+</odoo>

@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hrp_freight_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-28 15:15+0000\n"
+"PO-Revision-Date: 2020-05-28 15:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model,name:hrp_freight_rate.model_hrp_freight_rate_management
+msgid "Hrp Freight Rate Management"
+msgstr "运价管理（form）"
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__id
+msgid "ID"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__term_validity_date
+#: model:ir.model.fields,help:hrp_freight_rate.field_hrp_freight_rate_management__term_validity_date
+msgid "有效期"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__port_destination
+#: model:ir.model.fields,help:hrp_freight_rate.field_hrp_freight_rate_management__port_destination
+msgid "目的港"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__port_destination_code
+#: model:ir.model.fields,help:hrp_freight_rate.field_hrp_freight_rate_management__port_destination_code
+msgid "目的港代码"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__shipowner
+#: model:ir.model.fields,help:hrp_freight_rate.field_hrp_freight_rate_management__shipowner
+msgid "船东"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__port_departure
+#: model:ir.model.fields,help:hrp_freight_rate.field_hrp_freight_rate_management__port_departure
+msgid "起运港"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.model.fields,field_description:hrp_freight_rate.field_hrp_freight_rate_management__port_departure_code
+#: model:ir.model.fields,help:hrp_freight_rate.field_hrp_freight_rate_management__port_departure_code
+msgid "起运港代码"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:res.groups,name:hrp_freight_rate.group_manager
+msgid "运价"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model_terms:ir.ui.view,arch_db:hrp_freight_rate.hrp_freight_rate_management_form
+msgid "运价form"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model_terms:ir.ui.view,arch_db:hrp_freight_rate.hrp_freight_rate_management_tree
+msgid "运价tree"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.actions.act_window,name:hrp_freight_rate.action_hrp_freight_rate_management
+#: model:ir.ui.menu,name:hrp_freight_rate.hrp_freight_rate_management_menu
+msgid "运价查询"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.module.category,description:hrp_freight_rate.module_management
+#: model:ir.module.category,name:hrp_freight_rate.module_management
+msgid "运价查询权限组"
+msgstr ""
+
+#. module: hrp_freight_rate
+#: model:ir.ui.menu,name:hrp_freight_rate.hrp_freight_rate_management_menu_root
+msgid "运价管理"
+msgstr ""

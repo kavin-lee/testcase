@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!--菜单定义-->
+
+        <menuitem
+                id="hrp_gauss_management_menu_root"
+                name="GAUSS"
+                web_icon="hrp_gauss,static/description/icon.png"
+                sequence="10"/>
+
+        <menuitem
+                id="hrp_gauss_settings_menu_root"
+                name="设置"
+                sequence="50"/>
+    </data>
+</odoo>
