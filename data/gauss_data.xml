@@ -1,18 +1,11 @@
 <?xml version="1.0" ?>
 <odoo>
-  <data noupdate="1">
-    <record id="spider_scheduler" model="ir.cron">
-      <field name="interval_type">days</field>
-      <field name="name">Spider scheduler</field>
-      <field name="numbercall">-1</field>
-      <field name="priority">5</field>
-      <field name="doall">False</field>
-      <field name="active">False</field>
-      <field name="interval_number">1</field>
-      <field name="model_id" ref="model_hrp_spider_eleme_management_go"/>
-      <field name="state">code</field>
-      <field name="code">model.spider_eleme()</field>
-    </record>
+    <data>
+        <record model="ir.module.category" id="module_category_hrp_gauss">
+            <field name="name">权限管理</field>
+            <field name="description">Manage Hrp Gauss applications</field>
+            <field name="sequence">35</field>
+        </record>
 
-  </data>
+    </data>
 </odoo>

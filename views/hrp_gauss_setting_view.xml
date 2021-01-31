@@ -1,26 +1,27 @@
 <odoo>
     <data>
-        <record id="action_hrp_gauss_setting" model="ir.actions.act_window">
-            <field name="name">设置</field>
-            <field name="res_model">hrp.gauss.setting</field>
-            <field name="view_mode">tree,form</field>
-            <!--            <field name="view_id" ref="hrp_gauss_setting_tree"/>-->
+        <record id="hrp_gauss_demand_people_setting_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.demand.people.setting.tree</field>
+            <field name="model">hrp.gauss.demand.people.setting</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="人员设定tree" editable="bottom">
+                    <field name='name'/>
+                    <field name='type'/>
+                    <field name='is_owner'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_demand_people_setting" model="ir.actions.act_window">
+            <field name="name">人员设置</field>
+            <field name="res_model">hrp.gauss.demand.people.setting</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hrp_gauss_demand_people_setting_tree"/>
         </record>
 
         <menuitem parent="hrp_gauss_settings_menu_root"
-                  action="action_hrp_gauss_setting"
-                  id="hrp_gauss_setting_menu"/>
-
-<!--        <record id="action_hrp_gauss_category_setting" model="ir.actions.act_window">-->
-<!--            <field name="name">类别设置</field>-->
-<!--            <field name="res_model">hrp.gauss.category</field>-->
-<!--            <field name="view_mode">tree,form</field>-->
-<!--            &lt;!&ndash;            <field name="view_id" ref="hrp_gauss_setting_tree"/>&ndash;&gt;-->
-<!--        </record>-->
-
-<!--        <menuitem parent="action_hrp_gauss_setting"-->
-<!--                  action="action_hrp_gauss_category_setting"-->
-<!--                  id="hrp_gauss_category_setting_menu"-->
-<!--                  />-->
+                  action="action_hrp_gauss_demand_people_setting"
+                  id="hrp_gauss_demand_people_setting_menu"/>
     </data>
 </odoo>

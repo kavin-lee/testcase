@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, tools, _
+from datetime import datetime, timedelta
 
 
 class HrpGaussDemandTestcase(models.Model):
@@ -8,38 +9,45 @@ class HrpGaussDemandTestcase(models.Model):
     _description = 'Hrp Gauss Demand Testcase'
 
     # 需求编号
-    requirement_number = fields.Char("Requirement Number")
+    requirement_number = fields.Char(string="需求编号", help="Requirement Number")
     # 特性名称
-    property_name = fields.Char("Property Name")
+    name = fields.Char(string="特性名称", help="Property Name")
     # 开发人员
-    developers = fields.Char("Developers")
+    # developers = fields.Char(string="开发人员", help="Developers")
+    developers_id = fields.Many2one('hrp.gauss.demand.people.setting', string="开发人员", help="Developers",
+                                    domain=[('type', '=', 'Developer')])
     # 测试owner
-    test_owner = fields.Char("Test Owner")
+    test_owner_id = fields.Many2one('hrp.gauss.demand.people.setting', string="测试owner", help="Test Owner",
+                                    domain=[('type', '=', 'Tester'), ('is_owner', '=', True)])
     # 测试参与人
-    test_participants = fields.Char("Test Participants")
+    test_participants = fields.Many2many(comodel_name='hrp.gauss.demand.people.setting',
+                                         relation='rel_demand_test_people', column1='test_people_id',
+                                         column2='test_participants_id', string="测试参与人",
+                                         help="Test Participants", domain=[('type', '=', 'Tester')])
     # 转测时间
-    transfer_time = fields.Datetime("Transfer time")
+    transfer_time = fields.Datetime(string="转测时间", help="Transfer time")
     # 文本用例数
-    text_test_num = fields.Integer("Text testcase num")
+    text_test_num = fields.Integer(string="文本用例数", help="Text testcase num")
     # 文本文件
-    text_file = fields.Binary("text file")
+    text_file = fields.Binary(string="文本文件", help="text file")
     # 自动化用例数
-    auto_test_num = fields.Integer("Auto testcase num")
+    auto_test_num = fields.Integer(string="自动化用例数", help="Auto testcase num")
     # 自动化率
-    automation_rate = fields.Char("Automation rate", compute='_compute_automation_rate')
+    automation_rate = fields.Char(string="自动化率", help="Automation rate", compute='_compute_automation_rate',store=True)
     # 自动化用例路径
-    auto_test_path = fields.Char("Auto testcase Path")
+    auto_test_path = fields.Char(string="自动化用例路径", help="Auto testcase Path")
     # 测试完成时间
-    completion_time = fields.Char("Completion time", default=fields.Datetime.now())
+    completion_time = fields.Char(string="测试完成时间", help="Completion time",
+                                  default=(fields.datetime.now() + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S%f'))
     # 备注
-    note = fields.Text("Note")
+    note = fields.Text(string="备注", help="Note")
     # 状态
-    state = fields.Boolean('state')
+    state = fields.Boolean(string='是否测试完成', help='state')
 
     @api.depends('auto_test_num', 'text_test_num')
     def _compute_automation_rate(self):
         for rec in self:
             if rec.auto_test_num and rec.text_test_num:
-                rec.automation_rate = '%.2f' % (rec.auto_test_num / rec.text_test_num*100)+'%'
+                rec.automation_rate = '%.2f' % (rec.auto_test_num / rec.text_test_num * 100) + '%'
             else:
                 rec.automation_rate = '0.00%'

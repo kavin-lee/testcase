@@ -18,11 +18,12 @@
 
     # always loaded
     'data': [
+        'data/gauss_data.xml',
         'security/user_groups.xml',
         'security/ir.model.access.csv',
         'views/menuitem_gauss.xml',
         # 'views/hrp_gauss_management_view.xml',
-        # 'views/hrp_gauss_setting_view.xml',
+        'views/hrp_gauss_setting_view.xml',
         'views/hrp_gauss_demand_testcase_view.xml',
     ],
     'application': True,

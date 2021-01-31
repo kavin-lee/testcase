@@ -1,4 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hrp_gauss_hrp_gauss_management,access_hrp_gauss_hrp_gauss_management,hrp_gauss.model_hrp_gauss_management,,1,1,1,1
-
+access_hrp_gauss_hrp_gauss_demand_testcase,access_hrp_gauss_hrp_gauss_demand_testcase,hrp_gauss.model_hrp_gauss_demand_testcase,,1,1,1,1
+access_hrp_gauss_hrp_gauss_demand_people_setting,access_hrp_gauss_hrp_gauss_demand_people_setting,hrp_gauss.model_hrp_gauss_demand_people_setting,,1,1,1,1
 
