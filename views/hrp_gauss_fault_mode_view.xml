@@ -9,25 +9,27 @@
                     <group>
                         <group name="Left">
                             <field name='secondary_fault_object' required="1"
-                                   options="{'no_create':True,'no_create_edit': True}"/>
-                            <field name='networking_mode' options="{'no_create':True,'no_create_edit': True}"
+                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
+                            <field name='networking_mode'
+                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}"
                                    required="1"/>
                             <field name='fault_scenario_construction_method' required="1"/>
                             <field name='fault_phenomena_restart' required="1"/>
                             <field name='fault_compensation_measures'/>
                             <field name='is_data'/>
-                            <field name='state'/>
+
                         </group>
                         <group name="Right">
                             <field name='three_fault_object' required="1"
-                                   options="{'no_create':True,'no_create_edit': True}"/>
+                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
                             <field name='name' required="1"/>
                             <field name='fault_phenomena_operation' required="1"/>
                             <field name='fault_position_mode' widget="many2many_tags"
-                                   options="{'no_create':True,'no_create_edit': True}" required="1"/>
+                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}" required="1"/>
                             <field name='fault_monitoring_method'/>
                             <field name='datas'
                                    attrs="{'invisible': [('is_data', '=', False)],'required': [('is_data', '=', True)]}"/>
+                            <field name='state'/>
                             <field name='completion_time'/>
                         </group>
                     </group>

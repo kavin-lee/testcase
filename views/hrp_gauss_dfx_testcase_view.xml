@@ -17,7 +17,7 @@
                             <group name="Right">
                                 <field name='detailed_description' required="1"/>
                                 <field name='position_mode' widget="many2many_tags"
-                                       options="{'no_create':True,'no_create_edit': True}"/>
+                                       options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
                                 <field name='testcase_path'/>
                                 <field name='state'/>
                                 <field name='test_divergence'/>
