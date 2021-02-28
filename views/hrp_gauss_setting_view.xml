@@ -22,6 +22,53 @@
 
         <menuitem parent="hrp_gauss_settings_menu_root"
                   action="action_hrp_gauss_demand_people_setting"
-                  id="hrp_gauss_demand_people_setting_menu"/>
+                  id="hrp_gauss_demand_people_setting_menu"
+                  sequence="10"/>
+
+        <record id="hrp_gauss_dfx_mode_setting_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.dfx.mode.setting.tree</field>
+            <field name="model">hrp.gauss.dfx.mode.setting</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="所属模块tree" editable="bottom">
+                    <field name='name'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_dfx_mode_setting" model="ir.actions.act_window">
+            <field name="name">模块名设置</field>
+            <field name="res_model">hrp.gauss.dfx.mode.setting</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hrp_gauss_dfx_mode_setting_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_settings_menu_root"
+                  action="action_hrp_gauss_dfx_mode_setting"
+                  id="hrp_gauss_dfx_mode_setting_menu"
+                  sequence="20"/>
+
+        <record id="hrp_gauss_dfx_position_setting_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.dfx.position.setting.tree</field>
+            <field name="model">hrp.gauss.dfx.position.setting</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="所属模块tree" editable="bottom">
+                    <field name='name'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_dfx_position_setting" model="ir.actions.act_window">
+            <field name="name">定位方式设置</field>
+            <field name="res_model">hrp.gauss.dfx.position.setting</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hrp_gauss_dfx_position_setting_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_settings_menu_root"
+                  action="action_hrp_gauss_dfx_position_setting"
+                  id="hrp_gauss_dfx_position_setting_menu"
+                  sequence="30"/>
     </data>
 </odoo>

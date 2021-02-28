@@ -14,7 +14,8 @@
                             <field name='transfer_time'/>
                             <field name='text_test_num'/>
                             <field name='auto_test_path'/>
-                            <field name='text_file' attrs="{'invisible': [('state', '=', False)],'required': [('state', '=', True)]}"/>
+                            <field name='text_file'
+                                   attrs="{'invisible': [('state', '=', False)],'required': [('state', '=', True)]}"/>
                             <field name='completion_time'/>
                         </group>
                         <group name="Right">
@@ -48,26 +49,26 @@
             </field>
         </record>
 
-<!--        <record id="hrp_gauss_demand_testcase_activity" model="ir.ui.view">-->
-<!--            <field name="name">hrp.gauss.demand.testcase.activity</field>-->
-<!--            <field name="model">hrp.gauss.demand.testcase</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <activity string="Employees">-->
-<!--                    <field name="name"/>-->
-<!--                    <field name="automation_rate"/>-->
-<!--                    <templates>-->
-<!--                        <div t-name="activity-box">-->
-<!--                            <img t-att-src="activity_image('hrp.gauss.demand.testcase', 'image_128', record.id.raw_value)"-->
-<!--                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"/>-->
-<!--                            <div>-->
-<!--                                <field name="name" display="full"/>-->
-<!--                                <field name="automation_rate" muted="1" display="full"/>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </templates>-->
-<!--                </activity>-->
-<!--            </field>-->
-<!--        </record>-->
+        <!--        <record id="hrp_gauss_demand_testcase_activity" model="ir.ui.view">-->
+        <!--            <field name="name">hrp.gauss.demand.testcase.activity</field>-->
+        <!--            <field name="model">hrp.gauss.demand.testcase</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <activity string="Employees">-->
+        <!--                    <field name="name"/>-->
+        <!--                    <field name="automation_rate"/>-->
+        <!--                    <templates>-->
+        <!--                        <div t-name="activity-box">-->
+        <!--                            <img t-att-src="activity_image('hrp.gauss.demand.testcase', 'image_128', record.id.raw_value)"-->
+        <!--                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"/>-->
+        <!--                            <div>-->
+        <!--                                <field name="name" display="full"/>-->
+        <!--                                <field name="automation_rate" muted="1" display="full"/>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </templates>-->
+        <!--                </activity>-->
+        <!--            </field>-->
+        <!--        </record>-->
 
         <record model="ir.ui.view" id="hrp_gauss_demand_testcase_graph_view">
             <field name="name">hrp.gauss.demand.testcase.graph</field>
@@ -110,6 +111,7 @@
 
         <menuitem parent="hrp_gauss_management_menu_root"
                   action="action_hrp_gauss_demand_testcase"
-                  id="hrp_gauss_demand_testcase_menu"/>
+                  id="hrp_gauss_demand_testcase_menu"
+                  sequence="10"/>
     </data>
 </odoo>

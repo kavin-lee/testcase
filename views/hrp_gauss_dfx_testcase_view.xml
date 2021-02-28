@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        <record id="hrp_gauss_dfx_testcase_form" model="ir.ui.view">
+            <field name="name">hrp.gauss.dfx.testcase.form</field>
+            <field name="model">hrp.gauss.dfx.testcase</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <sheet>
+                    <form string="DFX form">
+                        <group>
+                            <group name="Left">
+                                <field name='name' required="1"/>
+                                <field name='test_mode'/>
+                                <field name='gap'/>
+                                <field name='test_procedure'/>
+                            </group>
+                            <group name="Right">
+                                <field name='detailed_description' required="1"/>
+                                <field name='position_mode' widget="many2many_tags"
+                                       options="{'no_create':True,'no_create_edit': True}"/>
+                                <field name='testcase_path'/>
+                                <field name='state'/>
+                                <field name='test_divergence'/>
+                            </group>
+                            <field name='test_phenomenon'/>
+                        </group>
+                    </form>
+                    <notebook>
+
+                        <page name="line_ids" string="笔记">
+                            <field name="line_ids"
+                                   widget="section_and_note_one2many"
+                                   mode="tree,kanban">
+                                <tree string="记录" editable="bottom" default_order="recording_time desc, id">
+                                    <field name='name'/>
+                                    <field name='recording_time'/>
+                                </tree>
+                            </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </field>
+        </record>
+
+        <record id="hrp_gauss_dfx_testcase_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.dfx.testcase.tree</field>
+            <field name="model">hrp.gauss.dfx.testcase</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="DFX tree">
+                    <field name='name'/>
+                    <field name='test_mode'/>
+                    <field name='position_mode'/>
+                    <field name='gap'/>
+                    <field name='state'/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hrp_gauss_dfx_testcase_graph_view">
+            <field name="name">hrp.gauss.dfx.testcase.graph</field>
+            <field name="model">hrp.gauss.dfx.testcase</field>
+            <field name="arch" type="xml">
+                <graph string="各模块DFX情况" type="bar" orientation="vertical" stacked="True" sample="1" interval="day">
+                    <field name="name"/>
+                    <field name="gap" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="hrp_gauss_dfx_testcase_filter" model="ir.ui.view">
+            <field name="name">hrp.gauss.dfx.testcase.search</field>
+            <field name="model">hrp.gauss.dfx.testcase</field>
+            <field name="arch" type="xml">
+                <search string="DFX搜索查询">
+                    <field name='detailed_description'/>
+                    <field name='name'/>
+                    <field name='test_procedure'/>
+                    <field name='test_phenomenon'/>
+                    <field name='position_mode'/>
+                    <field name='testcase_path'/>
+                    <field name='gap'/>
+                    <field name='state'/>
+                    <filter string="是否完成" name="state" domain="[('state','=',True)]" help="是否完成"/>
+                    <group string="Group By">
+                        <filter name="test_mode" string="模块" context="{'group_by':'test_mode'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_dfx_testcase" model="ir.actions.act_window">
+            <field name="name">DFX</field>
+            <field name="res_model">hrp.gauss.dfx.testcase</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="view_id" ref="hrp_gauss_dfx_testcase_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_management_menu_root"
+                  action="action_hrp_gauss_dfx_testcase"
+                  id="hrp_gauss_dfx_testcase_menu"
+                  sequence="30"/>
+    </data>
+</odoo>

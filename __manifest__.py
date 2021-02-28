@@ -25,6 +25,7 @@
         # 'views/hrp_gauss_management_view.xml',
         'views/hrp_gauss_setting_view.xml',
         'views/hrp_gauss_demand_testcase_view.xml',
+        'views/hrp_gauss_dfx_testcase_view.xml',
     ],
     'application': True,
 }
