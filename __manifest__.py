@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "GAUSSDB TEST",
+    'name': "GAUSS DB TEST",
 
     'summary': 'GAUSS数据',
 
@@ -14,7 +14,7 @@
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base',],
+    'depends': ['base', ],
 
     # always loaded
     'data': [
@@ -26,6 +26,7 @@
         'views/hrp_gauss_setting_view.xml',
         'views/hrp_gauss_demand_testcase_view.xml',
         'views/hrp_gauss_dfx_testcase_view.xml',
+        'views/hrp_gauss_fault_mode_view.xml',
     ],
     'application': True,
 }

@@ -28,3 +28,21 @@ class HrpGaussDfxPositionSetting(models.Model):
 
     # name
     name = fields.Char(string="方式名", help='Name')
+
+
+class HrpGaussFailureModeSetting(models.Model):
+    _name = 'hrp.gauss.failure.mode.setting'
+    _description = 'Hrp Gauss Failure Mode Setting'
+
+    # name
+    name = fields.Char(string="故障名称", help='Name')
+
+    level = fields.Selection(string='级别', selection=[('two', '二'), ('three', '三')])
+
+
+class HrpGaussNetworkingModeSetting(models.Model):
+    _name = 'hrp.gauss.networking.mode.setting'
+    _description = 'Hrp Gauss Networking Mode Setting'
+
+    # name
+    name = fields.Char(string="组网方式", help='Name')

@@ -22,8 +22,8 @@
                                 <field name='state'/>
                                 <field name='test_divergence'/>
                             </group>
-                            <field name='test_phenomenon'/>
                         </group>
+                        <field name='test_phenomenon'/>
                     </form>
                     <notebook>
 

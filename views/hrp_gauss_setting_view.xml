@@ -70,5 +70,52 @@
                   action="action_hrp_gauss_dfx_position_setting"
                   id="hrp_gauss_dfx_position_setting_menu"
                   sequence="30"/>
+
+        <record id="hrp_gauss_failure_mode_setting_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.failure.mode.setting.tree</field>
+            <field name="model">hrp.gauss.failure.mode.setting</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="故障名称tree" editable="bottom">
+                    <field name='name'/>
+                    <field name='level'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_failure_mode_setting" model="ir.actions.act_window">
+            <field name="name">故障名称设置</field>
+            <field name="res_model">hrp.gauss.failure.mode.setting</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hrp_gauss_failure_mode_setting_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_settings_menu_root"
+                  action="action_hrp_gauss_failure_mode_setting"
+                  id="hrp_gauss_failure_mode_setting_menu"
+                  sequence="40"/>
+
+        <record id="hrp_gauss_networking_mode_setting_tree" model="ir.ui.view">
+            <field name="name">hrp.gauss.networking.mode.setting.tree</field>
+            <field name="model">hrp.gauss.networking.mode.setting</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="组网方式tree" editable="bottom">
+                    <field name='name'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hrp_gauss_networking_mode_setting" model="ir.actions.act_window">
+            <field name="name">组网方式设置</field>
+            <field name="res_model">hrp.gauss.networking.mode.setting</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="hrp_gauss_networking_mode_setting_tree"/>
+        </record>
+
+        <menuitem parent="hrp_gauss_settings_menu_root"
+                  action="action_hrp_gauss_networking_mode_setting"
+                  id="hrp_gauss_networking_mode_setting_menu"
+                  sequence="50"/>
     </data>
 </odoo>
