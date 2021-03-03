@@ -14,7 +14,9 @@
                                 <field name='networking_mode'
                                        options="{'no_create':True,'no_create_edit': True,'no_open':True}"
                                        required="1"/>
-                                <field name="test_id"/>
+                                <field name="test_id"
+                                       options="{'no_create':True,'no_create_edit': True,'no_open':True}"
+                                       required="1"/>
                                 <field name='fault_compensation_measures'/>
                                 <field name='is_data'/>
                                 <field name='datas'
