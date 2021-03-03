@@ -40,7 +40,7 @@ class HrpGaussDemandTestcase(models.Model):
     completion_time = fields.Char(string="测试完成时间", help="Completion time",
                                   default=(fields.datetime.now() + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S%f'))
     # 备注
-    note = fields.Text(string="备注", help="Note")
+    note = fields.Html(string="备注", help="Note")
     # 状态
     state = fields.Boolean(string='是否测试完成', help='state')
 
@@ -156,3 +156,6 @@ class HrpGaussFailureModeLibrary(models.Model):
     # 测试完成时间
     completion_time = fields.Char(string="测试完成时间", help="Completion time",
                                   default=(fields.datetime.now() + timedelta(hours=8)).strftime('%Y-%m-%d %H:%M:%S%f'))
+
+    test_id = fields.Many2one('hrp.gauss.demand.people.setting', string="测试人", help="Tester",
+                                    domain=[('type', '=', 'Tester'), ('is_owner', '=', False)])

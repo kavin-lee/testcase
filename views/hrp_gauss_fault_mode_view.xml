@@ -5,37 +5,48 @@
             <field name="model">hrp.gauss.failure.mode.library</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="failure form">
-                    <group>
-                        <group name="Left">
-                            <field name='secondary_fault_object' required="1"
-                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
-                            <field name='networking_mode'
-                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}"
-                                   required="1"/>
+                <sheet>
+                    <form string="failure form">
+                        <group>
+                            <group name="Left">
+                                <field name='secondary_fault_object' required="1"
+                                       options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
+                                <field name='networking_mode'
+                                       options="{'no_create':True,'no_create_edit': True,'no_open':True}"
+                                       required="1"/>
+                                <field name="test_id"/>
+                                <field name='fault_compensation_measures'/>
+                                <field name='is_data'/>
+                                <field name='datas'
+                                       attrs="{'invisible': [('is_data', '=', False)],'required': [('is_data', '=', True)]}"/>
+                            </group>
+                            <group name="Right">
+                                <field name='three_fault_object' required="1"
+                                       options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
+                                <field name='name' required="1"/>
+                                <field name='fault_position_mode' widget="many2many_tags"
+                                       options="{'no_create':True,'no_create_edit': True,'no_open':True}" required="1"/>
+                                <field name='fault_monitoring_method'/>
+                                <field name='state'/>
+                                <field name='completion_time' readonly="1"/>
+                            </group>
+                        </group>
+                    </form>
+                    <notebook>
+                        <page name="fault_scenario_construction_method" string="故障场景构造方法">
                             <field name='fault_scenario_construction_method' required="1"/>
-                            <field name='fault_phenomena_restart' required="1"/>
-                            <field name='fault_compensation_measures'/>
-                            <field name='is_data'/>
-
-                        </group>
-                        <group name="Right">
-                            <field name='three_fault_object' required="1"
-                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}"/>
-                            <field name='name' required="1"/>
+                        </page>
+                        <page name="fault_phenomena_operation" string="故障现象（运行）">
                             <field name='fault_phenomena_operation' required="1"/>
-                            <field name='fault_position_mode' widget="many2many_tags"
-                                   options="{'no_create':True,'no_create_edit': True,'no_open':True}" required="1"/>
-                            <field name='fault_monitoring_method'/>
-                            <field name='datas'
-                                   attrs="{'invisible': [('is_data', '=', False)],'required': [('is_data', '=', True)]}"/>
-                            <field name='state'/>
-                            <field name='completion_time'/>
-                        </group>
-                    </group>
-                    <field name='note'/>
-                </form>
-
+                        </page>
+                        <page name="fault_phenomena_restart" string="故障现象（重启）">
+                            <field name='fault_phenomena_restart' required="1"/>
+                        </page>
+                        <page name="note" string="备注">
+                            <field name='note' required="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
             </field>
         </record>
 
@@ -49,6 +60,7 @@
                     <field name='three_fault_object'/>
                     <field name='networking_mode'/>
                     <field name='name'/>
+                    <field name="test_id"/>
                     <field name='fault_scenario_construction_method'/>
                     <field name='fault_phenomena_operation'/>
                     <field name='fault_phenomena_restart'/>
@@ -65,7 +77,7 @@
             <field name="name">hrp.gauss.failure.mode.library.graph</field>
             <field name="model">hrp.gauss.failure.mode.library</field>
             <field name="arch" type="xml">
-                <graph string="Fault" type="bar" orientation="vertical" stacked="True" sample="1" interval="day">
+                <graph string="Fault">
                     <field name="name"/>
                     <field name="three_fault_object" type="row"/>
                 </graph>
@@ -88,6 +100,7 @@
                     <field name='fault_monitoring_method'/>
                     <field name='fault_compensation_measures'/>
                     <field name='is_data'/>
+                    <field name="test_id"/>
                     <field name='completion_time'/>
                     <field name='state'/>
                     <filter string="是否完成" name="state" domain="[('state','=',True)]" help="是否完成"/>

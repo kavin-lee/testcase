@@ -5,32 +5,38 @@
             <field name="model">hrp.gauss.demand.testcase</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="需求form">
-                    <group>
-                        <group name="Left">
-                            <field name='requirement_number' required="1"/>
-                            <field name='developers_id'
-                                   options="{'no_create':True,'no_create_edit':True,'no_open':True}"/>
-                            <field name='transfer_time'/>
-                            <field name='text_test_num'/>
-                            <field name='auto_test_path'/>
-                            <field name='text_file'
-                                   attrs="{'invisible': [('state', '=', False)],'required': [('state', '=', True)]}"/>
-                            <field name='completion_time'/>
+                <sheet>
+                    <form string="需求form">
+                        <group>
+                            <group name="Left">
+                                <field name='requirement_number' required="1"/>
+                                <field name='developers_id'
+                                       options="{'no_create':True,'no_create_edit':True,'no_open':True}"/>
+                                <field name='transfer_time'/>
+                                <field name='text_test_num'/>
+                                <field name='auto_test_path'/>
+                                <field name='text_file'
+                                       attrs="{'invisible': [('state', '=', False)],'required': [('state', '=', True)]}"/>
+                                <field name='completion_time' readonly="1"/>
+                            </group>
+                            <group name="Right">
+                                <field name='name' required="1"/>
+                                <field name='test_owner_id'
+                                       options="{'no_create':True,'no_create_edit':True,'no_open':True}"/>
+                                <field name='test_participants' widget="many2many_tags"
+                                       options="{'no_create':True,'no_create_edit': True}"/>
+                                <field name='auto_test_num'/>
+                                <field name='automation_rate'/>
+                                <field name='state'/>
+                            </group>
                         </group>
-                        <group name="Right">
-                            <field name='name' required="1"/>
-                            <field name='test_owner_id'
-                                   options="{'no_create':True,'no_create_edit':True,'no_open':True}"/>
-                            <field name='test_participants' widget="many2many_tags"
-                                   options="{'no_create':True,'no_create_edit': True}"/>
-                            <field name='auto_test_num'/>
-                            <field name='automation_rate'/>
-                            <field name='state'/>
-                            <field name='note'/>
-                        </group>
-                    </group>
-                </form>
+                    </form>
+                    <notebook>
+                        <page name="note" string="备注">
+                            <field name='note' required="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
             </field>
         </record>
 
@@ -49,32 +55,11 @@
             </field>
         </record>
 
-        <!--        <record id="hrp_gauss_demand_testcase_activity" model="ir.ui.view">-->
-        <!--            <field name="name">hrp.gauss.demand.testcase.activity</field>-->
-        <!--            <field name="model">hrp.gauss.demand.testcase</field>-->
-        <!--            <field name="arch" type="xml">-->
-        <!--                <activity string="Employees">-->
-        <!--                    <field name="name"/>-->
-        <!--                    <field name="automation_rate"/>-->
-        <!--                    <templates>-->
-        <!--                        <div t-name="activity-box">-->
-        <!--                            <img t-att-src="activity_image('hrp.gauss.demand.testcase', 'image_128', record.id.raw_value)"-->
-        <!--                                 role="img" t-att-title="record.id.value" t-att-alt="record.id.value"/>-->
-        <!--                            <div>-->
-        <!--                                <field name="name" display="full"/>-->
-        <!--                                <field name="automation_rate" muted="1" display="full"/>-->
-        <!--                            </div>-->
-        <!--                        </div>-->
-        <!--                    </templates>-->
-        <!--                </activity>-->
-        <!--            </field>-->
-        <!--        </record>-->
-
         <record model="ir.ui.view" id="hrp_gauss_demand_testcase_graph_view">
             <field name="name">hrp.gauss.demand.testcase.graph</field>
             <field name="model">hrp.gauss.demand.testcase</field>
             <field name="arch" type="xml">
-                <graph string="各特性用例自动化情况" type="bar" orientation="vertical" stacked="True" sample="1" interval="day">
+                <graph string="各特性用例自动化情况">
                     <field name="name"/>
                     <field name="automation_rate" type="row"/>
                 </graph>

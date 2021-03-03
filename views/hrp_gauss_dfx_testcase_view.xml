@@ -23,7 +23,7 @@
                                 <field name='test_divergence'/>
                             </group>
                         </group>
-                        <field name='test_phenomenon'/>
+<!--                        <field name='test_phenomenon'/>-->
                     </form>
                     <notebook>
 
@@ -37,6 +37,9 @@
                                 </tree>
                             </field>
 
+                        </page>
+                         <page name="test_phenomenon" string="测试现象">
+                            <field name='test_phenomenon' required="1"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -63,7 +66,7 @@
             <field name="name">hrp.gauss.dfx.testcase.graph</field>
             <field name="model">hrp.gauss.dfx.testcase</field>
             <field name="arch" type="xml">
-                <graph string="各模块DFX情况" type="bar" orientation="vertical" stacked="True" sample="1" interval="day">
+                <graph string="各模块DFX情况">
                     <field name="name"/>
                     <field name="gap" type="row"/>
                 </graph>
